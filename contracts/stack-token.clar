@@ -54,20 +54,18 @@
   ;;(ok (ft-transfer? ertx amount sender to))
 )
 
-(define-public (get-account-balance (account principal)) 
-  (ok (ft-get-balance ertx account))
-)
-
 (define-public (burn-tokens (sender principal) (amount uint)) 
   (ok (ft-burn? ertx amount tx-sender))
 )
 
-(define-public (get-cirulating-supply) 
+;; read only functions
+(define-read-only (get-cirulating-supply) 
   (ok (ft-get-supply ertx))
 )
 
-;; read only functions
-;;
+(define-read-only (get-account-balance (account principal)) 
+  (ok (ft-get-balance ertx account))
+)
 
 ;; private functions
 ;;
